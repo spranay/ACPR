@@ -1,0 +1,10 @@
+*webcam we will be using is the Logitech C270 webcam which will be placed at the top of the chess board to take the top view of the game
+*The colour of the chess board will be red and faint lemon yellow squares to get a better contrast(source: http://www.colorsontheweb.com/colorcontrasts.asp)
+*The algorithm is as follows:-
+->first snap the image for an empty board which will be taken as reference image and convert into binary image
+->This image is first eroded so that individual squares may be observed separately without mixing to remove since otherwise the squares appear to be connected at the corners.
+To detect the squares in the image we have used the library “cvBlobs” to detect blobs and label them. Individual Blobs are then labelled and their centroids are stored in an array sorted from a1, a2 … h8 positions. 
+->next the image is captured after n moves which is converted into its binary iage by selecting a proper threshold
+-> The image captured after n+1 moves is made is subtracted from the
+original image
+->After every move the previous image acts as a reference image
